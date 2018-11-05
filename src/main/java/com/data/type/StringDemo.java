@@ -1,14 +1,17 @@
 package com.data.type;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class StringDemo {
     public static void main(String[] args) {
-        String str1 = "123";
-        String str2 = "123";
-        String str3 = new String("123");
-        System.out.println(str2.hashCode());
-        System.out.println(str1.equals(str2));
-        System.out.println(str1==str2);
-        System.out.println(str1.equals(str3));
-        System.out.println(str1==str3);
+
+        double d = 1.10;
+        String str = "12313.22";
+        double v = Double.parseDouble(str);
+
+        System.out.println(v);
+        List brCountry = new LinkedList<>();
+
     }
 }
