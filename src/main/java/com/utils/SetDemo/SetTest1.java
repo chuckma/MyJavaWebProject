@@ -13,6 +13,7 @@ public class SetTest1 {
         for (int i = 0; i < 10; i++) {
            set.add(i);
         }
+        int a = 0;
 
         System.out.println(set.size());
         System.out.println(set.isEmpty());
