@@ -13,6 +13,13 @@ public class MapDemo {
         map.clear();
         map.entrySet();
         System.out.println(hc);
+
+
+        Map<Integer, Integer> map1 = new HashMap<>();
+        map1.put(null, 1);
+        map1.put(2, null);
+        System.out.println(map1.get(null));
+        System.out.println(map1.get(1));
     }
 
 }
