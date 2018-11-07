@@ -9,10 +9,18 @@ public class AtomicIntegerDemo1 {
 
     public static void main(String[] args) {
         AtomicInteger atomicInteger = new AtomicInteger(45);
-//        atomicInteger.addAndGet(2);
         int i = atomicInteger.get();
-        i = atomicInteger.getAndAdd(2);
+        atomicInteger.getAndAdd(2);
         i = atomicInteger.getAndIncrement();
+//       i=  atomicInteger.incrementAndGet();
+
+        /**
+         * incrementAndGet（相当于 ++i） getAndIncrement（ 相当于 i++） 只做加 1 操作的时候没啥区别
+         * 如果需要接受返回值就会有影响
+         */
+        System.out.println(atomicInteger.get()); // 结果为 48
+        System.out.println(i);// 结果为 47
+
 //        atomicInteger.getAndIncrement();
 //        atomicInteger.getAndDecrement();
 //        atomicInteger.getAndSet(33);
@@ -33,7 +41,6 @@ public class AtomicIntegerDemo1 {
 //                return current;
 //        }
 
-        System.out.println(atomicInteger.get());
 
     }
 }
