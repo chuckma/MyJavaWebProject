@@ -23,7 +23,7 @@ public class MapDemo {
         System.out.println(map1.get(1));
 
 
-        // hashmap 的 key 可以使用自定义对象
+        // hashmap 的 key 可以使用自定义对象 只能是引用数据类型，不能是基本数据类型
         Map<Student, String> map2 = new HashMap();
 
         Student student1 = new Student("张三", "1", "1234", 23);
