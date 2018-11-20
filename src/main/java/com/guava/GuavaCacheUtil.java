@@ -51,7 +51,7 @@ public class GuavaCacheUtil {
     
     public static void main(String[] args) {
     	String str = "test";
-    	GuavaCacheUtil.setKey(GuavaCacheUtil.TOKEN_PREFIX+str,"test data12313123123");
+//    	GuavaCacheUtil.setKey(GuavaCacheUtil.TOKEN_PREFIX+str,"test data12313123123");
     	String value = GuavaCacheUtil.getKey(GuavaCacheUtil.TOKEN_PREFIX+str);
     	System.out.print(value);
     }
