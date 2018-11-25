@@ -1,4 +1,4 @@
-package com.codeskills;
+package com.common.codeskills;
 
 import java.util.ArrayList;
 import java.util.List;
