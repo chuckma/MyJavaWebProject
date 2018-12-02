@@ -1,4 +1,4 @@
-package com.common.guavademo;
+package com.common.StringDemo;
 
 import org.apache.commons.lang.StringUtils;
 
