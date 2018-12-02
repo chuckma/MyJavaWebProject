@@ -38,5 +38,26 @@ public class StringUtilsDemo {
         System.out.println(StringUtils.isBlank(" bob "));
 
         System.out.println("**********************");
+
+        String s1 = "";
+        String s2 = " ";
+        String s3 = null;
+
+        System.out.println(StringUtils.isNotBlank(s2));
+        String s = StringUtils.trimToEmpty(s2);
+        System.out.println(s.length()==s1.length());
+
+
+        String s4 = " 231 2 ";
+        String s5 = " 12331";
+        String s6 = "213213 ";
+        System.out.println(s4);
+        System.out.println(s4.length());
+        System.out.println(s5);
+        System.out.println(s6);
+        System.out.println(StringUtils.trimToEmpty(s4));
+        System.out.println(StringUtils.trimToEmpty(s4).length());
+        System.out.println(StringUtils.trimToEmpty(s5));
+        System.out.println(StringUtils.trimToEmpty(s6));
     }
 }
