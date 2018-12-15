@@ -16,6 +16,7 @@ public class test {
         System.out.println(a == b);
         // 对于两个非new生成的Integer对象,在缓存里的 为 true，在缓存外的为 false , valueOf()
         System.out.println("d = e ? " +(d == e));
+        System.out.println("d equals e ? " +(d.equals(e)));
 
         // 包装类Integer和基本数据类型int比较时，java会自动拆包装为int，
         // 然后进行比较，实际上就变为两个int变量的比较
