@@ -28,5 +28,9 @@ public class ArrayListDemo1 {
         System.out.println(!list1.isEmpty()&& list1.size()>0);
         System.out.println("==============");
 
+
+        List<String> list =  null; //new ArrayList<>();
+        System.out.println(list);
+
     }
 }
