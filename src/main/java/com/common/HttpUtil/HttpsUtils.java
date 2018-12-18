@@ -201,7 +201,7 @@ public class HttpsUtils {
 //        HttpPost httpPost = new HttpPost(apiUrl);
 //        CloseableHttpResponse response = null;
 //
-//        try {
+//        trycatch {
 //            httpPost.setConfig(requestConfig);
 //            StringEntity stringEntity = new StringEntity(json.toString(), "UTF-8");// 解决中文乱码问题
 //            stringEntity.setContentEncoding("UTF-8");
@@ -215,7 +215,7 @@ public class HttpsUtils {
 //            throw new ServiceException(e.getMessage());
 //        } finally {
 //            if (response != null) {
-//                try {
+//                trycatch {
 //                    EntityUtils.consume(response.getEntity());
 //                } catch (IOException e) {
 //                    LoggerUtils.error(logger, e, e.getMessage());

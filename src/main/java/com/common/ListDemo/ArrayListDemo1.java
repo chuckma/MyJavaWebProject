@@ -13,6 +13,11 @@ public class ArrayListDemo1 {
        // System.out.println(Integer.MAX_VALUE>>1);
        //  List<String> list = new ArrayList<>();
 
+        List<String > list = new ArrayList<>(4000);
+        System.out.println("list 大小："+list.size());
+        System.out.println("list 是否为空："+list.isEmpty());
+
+
 
         List<String> list1 = new ArrayList<>();
         System.out.println(list1.size());
@@ -29,8 +34,8 @@ public class ArrayListDemo1 {
         System.out.println("==============");
 
 
-        List<String> list =  null; //new ArrayList<>();
-        System.out.println(list);
+//        List<String> list =  null; //new ArrayList<>();
+//        System.out.println(list);
 
     }
 }

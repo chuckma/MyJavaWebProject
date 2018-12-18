@@ -9,6 +9,7 @@ public class StringUtilsDemo {
 
 
     public static void main(String[] args) {
+        System.out.println(StringUtils.isNotBlank(""));
 
         // 判断某字符串是否为空，为空的标准是 str==null 或 str.length()==0
         System.out.println(StringUtils.isEmpty(""));

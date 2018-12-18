@@ -211,7 +211,7 @@ public class HttpXmlClient {
 
 
       /*public void getNewCount(HttpServletRequest request, String email, HttpServletResponse response){
-        try {
+        trycatch {
             if(StringUtil.isNotEmpty(email)&&email.contains("@hsjy.com")){
                 //String pyName = "";
                 *//**
@@ -282,7 +282,7 @@ public class HttpXmlClient {
                 request.setAttribute("pyName", email);
                 request.setAttribute("authKeyValue", authKeyValue);
 
-                *//*try {
+                *//*trycatch {
                     PrintWriter writer = response.getWriter();
                     writer.write(authKey2);
                 } catch (IOException e) {

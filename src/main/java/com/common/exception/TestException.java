@@ -26,7 +26,7 @@ public class TestException {
             if (!ret) {
                 return false;
             }
-            System.out.println("testEx1, at the end of try");
+            System.out.println("testEx1, at the end of trycatch");
             return ret;
         } catch (Exception e) {
             System.out.println("testEx1, catch exception");
