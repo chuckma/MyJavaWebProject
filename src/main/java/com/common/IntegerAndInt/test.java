@@ -30,5 +30,16 @@ public class test {
         System.out.println("i equals j ? "+i.equals(j));
 
 
+        // String.valueOf(int i) 与 Integer.toString(int i) 没区别 String.valueOf 调用的就是  Integer.toString
+        System.out.println(" Integer.MIN_VALUE 通过 Integer.toString 转为 string 类型值为 =" +Integer.toString(Integer.MIN_VALUE));
+        System.out.println(" 12312 转为 string 类型值为 =" +Integer.toString(12312));
+        System.out.println(" Integer.MIN_VALUE 通过 String.valueOf 转为 string 类型值为 =" +String.valueOf(Integer.MIN_VALUE));
+        System.out.println(" Integer.MIN_VALUE 通过 String.valueOf 转为 string 类型值为 =" +String.valueOf(2147483646));
+
+        String s = String.valueOf(Integer.MIN_VALUE);
+        if (s instanceof  String){
+            System.out.println(s + "是 String 类型");
+        }
+
     }
 }

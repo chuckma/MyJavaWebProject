@@ -9,5 +9,8 @@ public class ObjectDemo1 {
         Object obj = null;
         // System.out.println(obj.toString());
         System.out.println(String.valueOf(obj));
+
+        Object o = "";
+        System.out.println(" o = "+o);
     }
 }

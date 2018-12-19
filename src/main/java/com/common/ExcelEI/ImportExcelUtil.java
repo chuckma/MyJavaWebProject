@@ -9,10 +9,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -56,7 +53,7 @@ public class ImportExcelUtil {
         Row row = null;
         Cell cell = null;
         // 返回数据
-        List<Map<String, Object>> res = new ArrayList<>();
+        List<Map<String, Object>> res = new LinkedList<>();
 
         // 遍历Excel中所有的sheet
         for (int i = 0; i < work.getNumberOfSheets(); i++) {
@@ -79,7 +76,7 @@ public class ImportExcelUtil {
             } else {
                 continue;
             }
-            log.info(JSON.toJSONString(title));
+            System.out.println(JSON.toJSON(title));
 
             // 遍历当前sheet中的所有行
             for (int j = 1; j < sheet.getLastRowNum() + 1; j++) {
@@ -99,7 +96,9 @@ public class ImportExcelUtil {
                     }
 
                     if (StringUtils.isNotBlank(key)) {
-                        m.put(mapping.get(key), getCellValue(cell));
+                        String mmkey = mapping.get(key);
+                        Object obj = getCellValue(cell);
+                        m.put(mmkey, obj);
                     }
                 }
                 res.add(m);
@@ -137,9 +136,11 @@ public class ImportExcelUtil {
      * @return
      */
     public static Object getCellValue(Cell cell) {
-//        if (cell.getCellTypeEnum().equals(NUMERIC)){
-//            System.out.println(cell.getCellStyle().getDataFormatString());
-//        }
+        if (cell.getCellTypeEnum().equals(NUMERIC)){
+            System.out.println(cell.getCellStyle().getDataFormatString());
+            System.out.println(cell);
+        }
+
         Object value = null;
         DecimalFormat df = new DecimalFormat("0"); // 格式化number String字符
         SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd"); // 日期格式化
@@ -182,8 +183,8 @@ public class ImportExcelUtil {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        File file = new File("C:/Users/Administrator/Desktop/sj/2017年全国跨境电商监测数据（FOR ACCESS）.xls");
+    public static void main(String[] args) throws Exception { // impor-data.xls 2017年全国跨境电商监测数据（FOR ACCESS）.xls
+        File file = new File("C:/Users/Administrator/Desktop/sj/impor-data.xls");
         FileInputStream fis = new FileInputStream(file);
         Map<String, String> m = new HashMap<String, String>();
         m.put("org_name", "org_name");
@@ -197,9 +198,10 @@ public class ImportExcelUtil {
 //        m.put("通用名称", "product_comm_name");
         List<Map<String, Object>> res = parseExcel(fis, file.getName(), m);
         if (!res.isEmpty()) {
+            System.out.println("-----------------");
             for (Map<String, Object> ll : res) {
-                System.out.println(ll.get("org_name"));
-//                System.out.println(JSON.toJSONString(ll.get("org_name")));
+
+                System.out.println(JSON.toJSONString(ll.get("monitor_date")));
             }
         } else {
             System.out.println("日期格式错误");
