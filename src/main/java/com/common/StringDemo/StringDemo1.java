@@ -33,5 +33,10 @@ public class StringDemo1 {
             System.out.println(s);
         }
         System.out.println(arr.length);
+
+
+        String ss1 = "HHHSSS";
+//        System.out.println(ss1.replace("H", "2"));
+        System.out.println(ss1.replaceAll("H", "2"));
     }
 }
