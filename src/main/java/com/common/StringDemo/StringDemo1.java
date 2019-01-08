@@ -8,6 +8,10 @@ public class StringDemo1 {
 
     public static void main(String[] args) {
 
+
+        String towYearAgo = String.valueOf(Integer.parseInt("2019")-2);
+        System.out.println(towYearAgo);
+
         /**
          *  intern() 作用有 2 个
          *  1 把字面量放到 常量池中（如果池子里没有该常量）
