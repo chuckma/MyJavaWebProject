@@ -22,22 +22,9 @@ public class BigDecimalDemo1 {
 
 
         for (int i = 0; i < 5; i++) {
-            count(i, i + 1);
+//            count(i, i + 1);
         }
 
     }
 
-    public static int count(int a, int b) {
-        boolean c = false;
-        int d = 0;
-
-        System.out.println(c);
-        if (c == 1) {
-            return 0;
-        }else{
-             d = count(a,b);
-        }
-        return  d;
-
-    }
 }
