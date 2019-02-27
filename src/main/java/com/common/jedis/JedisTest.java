@@ -1,6 +1,7 @@
 package com.common.jedis;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.SortingParams;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +19,9 @@ public class JedisTest {
 //        testKey(jedis);
         System.out.println("所有的key" + jedis.keys("*"));
 //        testString(jedis);
-        testHash(jedis);
+//        testHash(jedis);
+//        testList(jedis);
+        testSet(jedis);
     }
 
     /**
@@ -97,6 +100,41 @@ public class JedisTest {
 
         System.out.println("hashmap kh1 中是否存在 h1 字段 "+jedis.hexists("kh1", "h1"));
 
+    }
+
+    private static void testSet(Jedis jedis) {
+        // 添加一个或者多个元素
+        jedis.sadd("s1", "sv1", "sv2");
+        System.out.println(jedis.smembers("s1"));
+
+        // 删除一个值为 val 的元素
+        jedis.srem("s1", "sv1");
+        System.out.println(jedis.smembers("s1"));
+        jedis.sadd("s1", "sv2", "sv3");
+        // 随机出栈一个元素
+//        System.out.println(jedis.spop("s1"));
+
+        jedis.sadd("s2", "sv1", "sv2");
+        // 获取集合s1 和 s2 的交集
+        System.out.println("s1 和 s2 的交集是 "+jedis.sinter("s1", "s2"));
+
+        // 获取集合 s1 和 s2 的并集
+        System.out.println("s1 和 s2 的并集是 " + jedis.sunion("s1", "s2"));
+
+
+        // 返回集合中所有的成员
+        System.out.println("s1 集合中所有的成员是 "+jedis.smembers("s1"));
+        System.out.println("s2 集合中所有的成员是 "+jedis.smembers("s2"));
+
+    }
+    private static void testList(Jedis jedis) {
+        jedis.lpush("L1", "1", "2", "3");
+        System.out.println("list L1 的第一个元素是 "+jedis.lpop("L1"));
+        System.out.println("list 元素的个数是 "+jedis.llen("L1"));
+    }
+
+    private static void testSort(Jedis jedis) {
+        SortingParams sortingParams = new SortingParams();
 
     }
 }
