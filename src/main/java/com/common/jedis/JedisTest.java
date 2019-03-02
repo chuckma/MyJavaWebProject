@@ -18,7 +18,8 @@ public class JedisTest {
 //        testKey(jedis);
         System.out.println("所有的key" + jedis.keys("*"));
 //        testString(jedis);
-        testHash(jedis);
+//        testHash(jedis);
+        System.out.println(jedis.info());
     }
 
     /**
