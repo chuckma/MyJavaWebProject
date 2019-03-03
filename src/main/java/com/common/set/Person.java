@@ -1,5 +1,7 @@
 package com.common.set;
 
+import lombok.ToString;
+
 /**
  * 为什么返回0，只会存一个元素，返回-1会倒序存储，返回1会怎么存就怎么取呢？原因在于TreeSet底层其实是一个二叉树机构，
  * 且每插入一个新元素(第一个除外)都会调用```compareTo()```方法去和上一个插入的元素作比较，并按二叉树的结构进行排列。
@@ -13,6 +15,7 @@ package com.common.set;
  * 3. 如果将```compareTo()```返回值写死为-1，元素值每次比较，都认为新插入的元素比上一个元素小，
  *    于是二叉树存储时，会存在根的左侧，读取时就是倒序序排列的。
  */
+//@ToString
 public class Person implements Comparable<Person> {
     private String name;
     private int age;

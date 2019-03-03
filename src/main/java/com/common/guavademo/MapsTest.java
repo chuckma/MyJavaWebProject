@@ -21,23 +21,23 @@ public class MapsTest {
 
 
         /*//将主键作为 map 的 key
-        Map<String,Person> personMap = Maps.uniqueIndex(personList.iterator(), new Function<Person, String>() {
-            public String apply(Person person) {
+        Map<String,Person1> personMap = Maps.uniqueIndex(personList.iterator(), new Function<Person1, String>() {
+            public String apply(Person1 person) {
                 return person.getId();
             }
         });
 
-        Person p3 = personMap.get(1);
+        Person1 p3 = personMap.get(1);
         System.out.println("将主键当作Map的Key:" + personMap);
 
 
 
         // 可以说是Maps.uniqueIndex相反的作用
-        Set<Person> personSet = Sets.newHashSet(person1, person2);
+        Set<Person1> personSet = Sets.newHashSet(person1, person2);
         @SuppressWarnings("unused")
-        Map<Person, String> personAsMap= Maps.asMap(personSet, new Function() {
+        Map<Person1, String> personAsMap= Maps.asMap(personSet, new Function() {
             public Object apply(Object input) {
-                return ((Person)input).getId();
+                return ((Person1)input).getId();
             }
         });
 
@@ -46,8 +46,8 @@ public class MapsTest {
 
 
         // 转换Map中的value值
-        Map<String, String> transformValuesMap = Maps.transformValues(personMap, new Function<Person, String>() {
-            public String apply(Person input) {
+        Map<String, String> transformValuesMap = Maps.transformValues(personMap, new Function<Person1, String>() {
+            public String apply(Person1 input) {
                 return input.getName();
             }
         });
