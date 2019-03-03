@@ -15,6 +15,7 @@ public class ObjectDemo1 {
         Object o = "";
         System.out.println(" o = "+o);
         test();
+        comparePerson();
     }
 
 
@@ -25,6 +26,14 @@ public class ObjectDemo1 {
         System.out.println(person1.toString());
     }
 
+    private static void comparePerson() {
+        Person1 p1 = new Person1("张三", 11);
+        Person1 p2 = new Person1("张三", 11);
+        System.out.println(p1.equals(p2));
+        System.out.println(p1==p2);
+        System.out.println(p1.hashCode());
+        System.out.println(p2.hashCode());
+    }
 
    /* @Data
     @NoArgsConstructor

@@ -1,9 +1,6 @@
 package com.common.object;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * @Author mcg
@@ -14,6 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+//@EqualsAndHashCode
 public class Person1 {
     private String name;
     private Integer age;
