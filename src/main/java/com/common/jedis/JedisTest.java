@@ -19,13 +19,13 @@ public class JedisTest {
          * java.net.SocketTimeoutException: connect timed out
          * telnet 47.97.177.125 6381 端口不通的话，去控制台开放安全组
          */
-        Jedis jedis = new Jedis("47.97.177.125", 6381);
+        Jedis jedis = new Jedis("47.97.177.125", 6380);
 
 //        testKey(jedis);
         System.out.println("所有的key" + jedis.keys("*"));
 //        testString(jedis);
 //        testHash(jedis);
-        System.out.println(jedis.info());
+//        System.out.println(jedis.info());
 //        testList(jedis);
         testSet(jedis);
     }
