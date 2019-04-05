@@ -1,10 +1,12 @@
 package com.common.jedis;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisSentinelPool;
 import redis.clients.jedis.SortingParams;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @Author mcg
@@ -17,9 +19,10 @@ public class JedisTest {
     public static void main(String[] args) {
         /**
          * java.net.SocketTimeoutException: connect timed out
-         * telnet 47.97.177.125 6381 端口不通的话，去控制台开放安全组
+         * telnet 47.97.177.xxx 6381 端口不通的话，去控制台开放安全组
          */
-        Jedis jedis = new Jedis("47.97.177.125", 6380);
+//        Jedis jedis = new Jedis("47.97.177.125", 6380);
+        Jedis jedis = new Jedis("47.99.198.xx", 6380);
 
 //        testKey(jedis);
         System.out.println("所有的key" + jedis.keys("*"));
@@ -27,7 +30,12 @@ public class JedisTest {
 //        testHash(jedis);
 //        System.out.println(jedis.info());
 //        testList(jedis);
-        testSet(jedis);
+//        testSet(jedis);
+        for (int i = 0; i < 100; i++) {
+//            System.out.println(i);
+//            jedis.set(String.valueOf(i), UUID.randomUUID().toString());
+        }
+        System.out.println("21");
     }
 
     /**
