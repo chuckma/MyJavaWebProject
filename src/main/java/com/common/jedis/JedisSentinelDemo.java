@@ -26,7 +26,7 @@ public class JedisSentinelDemo {
 
             System.out.println(JedisSentinelUtil.getDbSize());
 //            System.out.println(JedisSentinelUtil.setNx("66","8888"));
-//            System.out.println(JedisSentinelUtil.get("1"));
+            System.out.println(JedisSentinelUtil.get("1"));
         } catch (Exception e) {
             log.error("获取 jedis 异常", e);
         }
