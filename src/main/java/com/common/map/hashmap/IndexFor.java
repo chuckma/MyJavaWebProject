@@ -2,6 +2,8 @@ package com.common.map.hashmap;
 
 /**
  * hashMap indexFor 方法
+ *
+ * indexFor 只有在 jdk7以下
  */
 public class IndexFor {
 
@@ -13,7 +15,7 @@ public class IndexFor {
          * 当length为2的n次方时，h&(length - 1)就相当于对length取模，而且速度比直接取模快得多，这是HashMap在速度上的一个优化。
          * 至于为什么是2的n次方下面解释。
          *
-         * 我们回到indexFor方法，该方法仅有一条语句：h&(length - 1)，
+         * 我们回到indexFor方法，该方法仅有一条语句：h&(length - 1)， h 为 hash 值
          * 这句话除了上面的取模运算外还有一个非常重要的责任：均匀分布table数据和充分利用空间。
          *
          * 这里我们假设length为16(2^n)和15，h为5、6、7。
