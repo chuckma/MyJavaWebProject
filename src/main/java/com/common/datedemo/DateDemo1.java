@@ -15,5 +15,10 @@ public class DateDemo1 {
         System.out.println(DateUtils.MILLIS_PER_SECOND);
         System.out.println(System.currentTimeMillis()+333);
         System.out.println(Math.random());
+
+        Date d = new Date();
+        System.out.println(d.toLocaleString());
+        System.out.println(d.toGMTString());
+        System.out.println(new Date());
     }
 }
