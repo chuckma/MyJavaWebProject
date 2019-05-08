@@ -1,4 +1,4 @@
-package com.common.invoke;
+package com.common.reflectDemo;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -43,11 +43,13 @@ public class TaskInfoExcelVO implements Serializable {
         this.sampleDescription = sampleDescription;
     }
 
-
-    public static void main(String[] args) throws ClassNotFoundException {
-        Class<?> excelVO = Class.forName("com.common.invoke.TaskInfoExcelVO");
-        for (Field field : excelVO.getClass().getFields()) {
-            System.out.println(field);
-        }
+    @Override
+    public String toString() {
+        return "TaskInfoExcelVO{" +
+                "amout='" + amout + '\'' +
+                ", testContent='" + testContent + '\'' +
+                ", executiveStandard='" + executiveStandard + '\'' +
+                ", sampleDescription='" + sampleDescription + '\'' +
+                '}';
     }
 }
