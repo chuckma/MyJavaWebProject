@@ -12,7 +12,7 @@ public class Test {
 
     public static void main(String[] args) {
         try {
-            Class<?> aClass = Class.forName("com.common.reflectDemo.TaskInfoExcelVO");
+            Class<?> aClass = TaskInfoExcelVO.class; //Class.forName("com.common.reflectDemo.TaskInfoExcelVO");
             Object obj = aClass.newInstance();
             for (Field field : aClass.getDeclaredFields()) {
                 field.setAccessible(true);
@@ -33,8 +33,6 @@ public class Test {
             }
 
             System.out.println(obj);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
