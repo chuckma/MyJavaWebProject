@@ -1,6 +1,7 @@
 package com.common.StringDemo;
 
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by Andy on 2017/11/7.
@@ -60,5 +61,20 @@ public class StringUtilsDemo {
         System.out.println(StringUtils.trimToEmpty(s4).length());
         System.out.println(StringUtils.trimToEmpty(s5));
         System.out.println(StringUtils.trimToEmpty(s6));
+
+
+        System.out.println("1234567 省略一部分 "+StringUtils.abbreviate("1234567", 4));
+
+        System.out.println(StringUtils.containsOnly("abab", "abc"));
+
+        String ids = "1,2,3,4,5,11,23,44,1";
+        ids = StringUtils.remove(ids, "1");
+        String[] split = StringUtils.split(ids, ",");
+        System.out.println(ids);
+        for (String s7 : split) {
+            System.out.println(s7);
+        }
+
+
     }
 }
