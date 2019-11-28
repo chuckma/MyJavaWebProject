@@ -15,16 +15,32 @@ package com.common.pojo;
  *
  * Effective Java 第 2 条
  * 遇到多个构造器参数时要考虑使用构建器。
+ *
+ *
+ * 如何合理的覆盖 toString 方法
+ *
+ *
+ *
+ * 对于排序敏感性的实体，要考虑实现 Comparable 接口
  **/
 
 
-public class Users {
+public class Users implements Comparable<Users>{
 
     private String username;
     private String nickname;
     private Integer sex;
     private Integer age;
     private String phone;
+
+    @Override
+    public int compareTo(Users users) {
+        int result = Integer.compare(sex, users.sex);
+        if (result == 0) {
+            result = Integer.compare(age, users.age);
+        }
+        return result;
+    }
 
     public static class Builder {
         private String username;
