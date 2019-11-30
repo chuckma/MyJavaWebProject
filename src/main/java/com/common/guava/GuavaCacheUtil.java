@@ -20,7 +20,10 @@ public class GuavaCacheUtil {
 
     // expireAfterAccess 缓存项在给定时间内没有被读/写访问，则回收。请注意这种缓存的回收顺序和基于大小回收一样。
 
-    private static LoadingCache<String, String> localcache = CacheBuilder.newBuilder().initialCapacity(1000).maximumSize(10000).expireAfterAccess(2, TimeUnit.HOURS)
+    private static LoadingCache<String, String> localcache = CacheBuilder.newBuilder()
+            .initialCapacity(1000)
+            .maximumSize(10000)
+            .expireAfterAccess(2, TimeUnit.HOURS)
             .build(new CacheLoader<String, String>() {
                 //默认的数据加载实现,当调用get取值的时候,如果key没有对应的值,就调用这个方法进行加载.
                 @Override
@@ -50,10 +53,15 @@ public class GuavaCacheUtil {
     }
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
     	String str = "test";
-//    	GuavaCacheUtil.setKey(GuavaCacheUtil.TOKEN_PREFIX+str,"test data12313123123");
+    	GuavaCacheUtil.setKey(GuavaCacheUtil.TOKEN_PREFIX+str,"test data12313123123");
     	String value = GuavaCacheUtil.getKey(GuavaCacheUtil.TOKEN_PREFIX+str);
-    	System.out.print(value);
+
+
+        System.out.println(value);
+        Thread.sleep(5000);
+        System.out.println(GuavaCacheUtil.getKey(GuavaCacheUtil.TOKEN_PREFIX+str));
+
     }
 }
