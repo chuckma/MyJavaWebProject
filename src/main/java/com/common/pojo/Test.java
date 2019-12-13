@@ -9,6 +9,10 @@ import java.util.*;
 
 public class Test {
 
+    private static String a = "123";
+    private final String b = "123";
+    private static final String c = "123";
+
     public static void main(String[] args) {
 
 
