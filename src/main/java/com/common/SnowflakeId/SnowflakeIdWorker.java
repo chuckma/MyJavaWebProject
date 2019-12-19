@@ -7,6 +7,8 @@ import org.apache.commons.lang3.SystemUtils;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Twitter_Snowflake<br>
@@ -187,10 +189,13 @@ public class SnowflakeIdWorker {
     public static void main(String[] args) {
         System.out.println(System.currentTimeMillis());
         long startTime = System.nanoTime();
+        Set<String> set = new HashSet<>(60000);
         for (int i = 0; i < 50000; i++) {
             long id = SnowflakeIdWorker.generateId();
+            set.add(String.valueOf(id));
             System.out.println(id);
         }
+        System.out.println(set.size());
 //        System.out.println((System.nanoTime()-startTime)/1000000+"ms");
     }
 }

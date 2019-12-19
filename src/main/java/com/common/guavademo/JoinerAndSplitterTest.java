@@ -4,6 +4,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Ordering;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -29,8 +30,8 @@ public class JoinerAndSplitterTest {
     public static void main(String[] args) throws IOException {
 
 
-        testJoiner1();
-//        testGuavaSplitterAllTypeMethod();
+//        testJoiner1();
+        testGuavaSplitterAllTypeMethod();
     }
 
 
@@ -78,6 +79,14 @@ public class JoinerAndSplitterTest {
     }
 
     public static void testGuavaSplitterAllTypeMethod() {
+        String code = "18,11, 10";
+        List<String> typeList = Splitter.on(",").omitEmptyStrings().trimResults().splitToList(code);
+        System.out.println(typeList);
+        Ordering<String> ordering = Ordering.natural();
+        System.out.println(ordering.sortedCopy(typeList));
+        String res = Joiner.on(",").join(ordering.sortedCopy(typeList));
+        System.out.println(res);
+
         String string = ",,2,apple,xiaomi,,,MeiZu,Mei Zu,,vivo-nex,,1231,";
         String string2 = "1-2-3-4-5-6";
         // 去掉无用的值，清除一些没有用的值,这个方法真的是太实用了，对于一些字符串的清洗整理很有用

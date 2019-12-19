@@ -6,12 +6,18 @@ import com.google.common.io.MoreFiles;
 import com.google.common.io.RecursiveDeleteOption;
 import com.google.common.io.Resources;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.time.DateUtils;
+import org.joda.time.DateTimeUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,7 +31,36 @@ import java.util.List;
 public class GuavaFileTest {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
+        File logs = new File("D:/jboss-4.2.3.GA-a/jboss-4.2.3.GA/server/default/log");
+        String ss = "123123123ADADaccc";
+        System.out.println(ss.contains("d"));
+        File[] files = logs.listFiles();
+        List<File> list1 = new ArrayList<>();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date parse = format.parse("2019-12-03");
+        Date parse1 = format.parse("2019-12-13");
+//        Date parse1 = format.parse("2019-12-17");
+        for (File file : files) {
+            if (Files.getFileExtension(file.getAbsolutePath()).equals("log")) {
+                continue;
+            }
+            Date logDate = format.parse(Files.getFileExtension(file.getAbsolutePath()));
+            if (logDate.getTime() >= parse.getTime() && logDate.getTime()<=parse1.getTime()) {
+                list1.add(file);
+            }
+//            if (Files.getFileExtension(file.getAbsolutePath()).equals("2019-12-16")) {
+//                list1.add(file);
+//            }
+
+        }
+
+        for (File file : list1) {
+            System.out.println(Files.getFileExtension(file.getAbsolutePath()));
+//            System.out.println(Files.getNameWithoutExtension(file.getAbsolutePath()));
+        }
+
+
         File from = new File("test/test1.txt");
         List<String> list = null;
         try {
