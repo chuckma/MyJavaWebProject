@@ -4,6 +4,7 @@ package com.common.SnowflakeId;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
+import org.joda.time.DateTime;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
@@ -190,10 +191,11 @@ public class SnowflakeIdWorker {
         System.out.println(System.currentTimeMillis());
         long startTime = System.nanoTime();
         Set<String> set = new HashSet<>(60000);
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 500000; i++) {
             long id = SnowflakeIdWorker.generateId();
-            set.add(String.valueOf(id));
-            System.out.println(id);
+            String idd = DateTime.now().toString("yyyyMMdd")+String.valueOf(id);
+            set.add(idd);
+            System.out.println(idd);
         }
         System.out.println(set.size());
 //        System.out.println((System.nanoTime()-startTime)/1000000+"ms");

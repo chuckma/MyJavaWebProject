@@ -5,6 +5,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -28,10 +29,9 @@ public class JoinerAndSplitterTest {
             ("google","guava","java",null,"scala","kafka");
 
     public static void main(String[] args) throws IOException {
-
-
-//        testJoiner1();
-        testGuavaSplitterAllTypeMethod();
+//        System.out.println(StringUtils.substring("201901", 4));
+        testJoiner1();
+//        testGuavaSplitterAllTypeMethod();
     }
 
 
@@ -65,8 +65,10 @@ public class JoinerAndSplitterTest {
         ImmutableMap<String, String> of = ImmutableMap.of("id", "123", "name", "green");
 
         // withKeyValueSeparator 可以将一个 k v 结果的数据通过给定的符号链接起来
-        System.out.println(Joiner.on(";").withKeyValueSeparator("=").join(of));
-
+        System.out.println("123123");
+        System.out.println(of);
+        System.out.println(Joiner.on(",").withKeyValueSeparator("=").join(of));
+        System.out.println("3333333");
 
 
         //4.把集合变成一个stringBuilder 或者stringBuffer
@@ -112,7 +114,7 @@ public class JoinerAndSplitterTest {
         System.out.println(result);
 
 
-        String string4 = "123 ,12,,affa ";
+        String string4 = ",123 ,12,,affa, ";
         System.out.println(Splitter.on(",").omitEmptyStrings().trimResults().split(string4));
 
         // splitToList 将处理后的结果转为一个 list，而 split 是返回一个 字符串迭代器

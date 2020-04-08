@@ -18,11 +18,11 @@ public class SearchLog {
     public static void main(String[] args) {
 
 
-        File logs = new File("/Users/lucasma/Downloads/logs/");
+        File logs = new File("F:\\log");
 
         File[] files = logs.listFiles();
         for (File file : files) {
-            List<String> list = new ArrayList<>(20000);
+            List<String> list = new ArrayList<>(30000);
             try {
                 list = Files.readLines(file, Charsets.UTF_8);
             } catch (Exception e) {
@@ -33,9 +33,7 @@ public class SearchLog {
                     System.out.println(file.getName()+" >>> "+s);
                 }
 
-                if (s.contains("'2920'")) {
-                    System.out.println(file.getName()+" >>> "+s);
-                }
+
             }
         }
 

@@ -139,9 +139,9 @@ public class GuavaMapTest {
 //        biMap.put("First1", 4);
 //        biMap.put("First", 3);
 //        biMap.put("First12", 1);
-        biMap.put("Second", 22);
+//        biMap.put("Second", 22);
         biMap.inverse().put(3, "Third");
-        biMap.inverse().put(4, "Third");
+//        biMap.inverse().put(4, "Third");
         System.out.println(biMap);
         System.out.println(biMap.get("Second"));
         System.out.println(biMap.inverse().get(22));
@@ -158,6 +158,8 @@ public class GuavaMapTest {
         distance.put("London", "Paris", 340);
         distance.put("New York", "Los Angeles", 3940);
         distance.put("London", "New York", 5576);
+        distance.put("London", "New York", 1200000);
+        System.out.println(distance);
 
         System.out.println("双索引映射 London 距离 Paris "+distance.get("London", "Paris").intValue());
 

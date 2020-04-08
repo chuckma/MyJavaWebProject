@@ -1,6 +1,7 @@
 package com.common.guavademo;
 
 import com.google.common.base.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @Author mcg
@@ -38,8 +39,7 @@ public class GuavaStringsTest {
         // 校验控制空值  null or ""
         System.out.println(Strings.isNullOrEmpty(null));
         System.out.println(Strings.isNullOrEmpty(""));
-
-
+        System.out.println("23112312"+Strings.isNullOrEmpty("   "));
         // 4
         // nullToEmpty() null to ""
         System.out.println(Strings.nullToEmpty(null));
